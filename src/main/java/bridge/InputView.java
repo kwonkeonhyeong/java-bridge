@@ -1,5 +1,7 @@
 package bridge;
 
+import static camp.nextstep.edu.missionutils.Console.readLine;
+
 /**
  * 사용자로부터 입력을 받는 역할을 한다.
  */
@@ -24,5 +26,18 @@ public class InputView {
      */
     public String readGameCommand() {
         return null;
+    }
+
+    private void validateNumeric(String input) {
+        if (input.matches("^\\d+$")) {
+            return;
+        }
+        throw new IllegalArgumentException();
+    }
+    private void validateLetter(String input) {
+        if (input.matches("^[A-Za-z]+$")) {
+            return;
+        }
+        throw new IllegalArgumentException();
     }
 }
