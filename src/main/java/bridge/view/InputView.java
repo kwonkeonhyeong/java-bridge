@@ -31,7 +31,7 @@ public class InputView {
     }
 
     public void validateNumeric(String input) {
-        if (input.equals("^\\d+$")) {
+        if (input.matches("^\\d+$")) {
             return;
         };
         throw new IllegalArgumentException();
