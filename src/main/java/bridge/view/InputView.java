@@ -1,4 +1,4 @@
-package bridge;
+package bridge.view;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
@@ -11,7 +11,9 @@ public class InputView {
      * 다리의 길이를 입력받는다.
      */
     public int readBridgeSize() {
-        return 0;
+        String input = readLine().trim();
+        validateNumeric(input);
+        return Integer.parseInt(input);
     }
 
     /**
@@ -28,16 +30,10 @@ public class InputView {
         return null;
     }
 
-    private void validateNumeric(String input) {
-        if (input.matches("^\\d+$")) {
+    public void validateNumeric(String input) {
+        if (input.equals("^\\d+$")) {
             return;
-        }
-        throw new IllegalArgumentException();
-    }
-    private void validateLetter(String input) {
-        if (input.matches("^[A-Za-z]+$")) {
-            return;
-        }
+        };
         throw new IllegalArgumentException();
     }
 }
