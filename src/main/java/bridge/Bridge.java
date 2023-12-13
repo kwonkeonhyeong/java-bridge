@@ -11,7 +11,7 @@ public class Bridge {
         bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
     }
 
-    public void createBridge(int size) {
+    public void addBridge(int size) {
         validateBridgeSize(size);
         bridge = bridgeMaker.makeBridge(size);
     }
@@ -21,5 +21,9 @@ public class Bridge {
             return;
         }
         throw new IllegalArgumentException();
+    }
+
+    public List<String> getBridge() {
+        return bridge;
     }
 }

@@ -11,16 +11,18 @@ public class InputView {
      * 다리의 길이를 입력받는다.
      */
     public int readBridgeSize() {
-        String input = readLine().trim();
-        validateNumeric(input);
-        return Integer.parseInt(input);
+        String bridgeSize = readLine().trim();
+        validateInputRegex(bridgeSize, "^\\d+$");
+        return Integer.parseInt(bridgeSize);
     }
 
     /**
      * 사용자가 이동할 칸을 입력받는다.
      */
     public String readMoving() {
-        return null;
+        String moveCommand = readLine().trim();
+        validateInputRegex(moveCommand,"^[A-Z]*$");
+        return moveCommand;
     }
 
     /**
@@ -30,8 +32,8 @@ public class InputView {
         return null;
     }
 
-    public void validateNumeric(String input) {
-        if (input.matches("^\\d+$")) {
+    public void validateInputRegex(String input, String regex) {
+        if (input.matches(regex)) {
             return;
         };
         throw new IllegalArgumentException();
