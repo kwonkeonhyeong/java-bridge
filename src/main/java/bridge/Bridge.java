@@ -1,6 +1,6 @@
 package bridge;
 
-import java.util.ArrayList;
+import java.sql.SQLOutput;
 import java.util.List;
 
 public class Bridge {
@@ -25,5 +25,17 @@ public class Bridge {
 
     public List<String> getBridge() {
         return bridge;
+    }
+
+    public boolean isCross(GameRecord gameRecord) {
+        int index = gameRecord.getMoveRecordLastIndex();
+        String moveRecord = gameRecord.getLastMoveRecord();
+        String currentBridgePosition = bridge.get(index);
+        return currentBridgePosition.equals(moveRecord);
+    }
+
+    public boolean isArrive(GameRecord gameRecord) {
+        int moveCommandSize = gameRecord.getMoveRecordSize();
+        return moveCommandSize == bridge.size();
     }
 }
